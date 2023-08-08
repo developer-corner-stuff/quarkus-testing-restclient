@@ -8,7 +8,7 @@ import org.eclipse.microprofile.rest.client.annotation.ClientHeaderParam;
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
 @RegisterRestClient(configKey = "football-api")
-@ClientHeaderParam(name = "x-apisports-key", value = "1a17a6fcc5db9cbae7a29c8b78bed1d9")
+@ClientHeaderParam(name = "x-apisports-key", value = "${football-api.key}")
 public interface ApiFootballService {
 
     @GET

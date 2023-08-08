@@ -21,7 +21,6 @@ public class FootballFixtureService {
     @GET
     public Response getPremierLeagueFixtures() {
         FootballApiResponse footballApiResponse = apiFootballService.getFixturesByDate("39", "2023", "2023-08-11");
-        LOGGER.debug("response received: {}", footballApiResponse);
         return Response.ok().entity(footballApiResponse).build();
     }
 }

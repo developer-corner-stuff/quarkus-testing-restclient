@@ -2,7 +2,7 @@ package io.arrogantprogrammer.quarkus.testing.wiremock.utils;
 
 public class TestValues {
 
-    public static final String API_URL = "https://v3.football.api-sports.io";
+    public static final String API_URL = "https://v3.football.api-sports.io/fixtures";
     public static final String API_AUTH_KEY = "x-apisports-key";
     public static final String API_AUTH_VALUE = "2b36a6fgc9bd0fmwd6b31d9c63adc0c8";
 

@@ -21,7 +21,7 @@ public class PremierLeageStandingsTestLifecycleManager implements QuarkusTestRes
         wireMockServer = new WireMockServer();
         wireMockServer.start();
 
-        stubFor(get(urlEqualTo(TestValues.API_URL))
+        wireMockServer.stubFor(get(urlEqualTo(TestValues.API_URL))
                 .withQueryParams(new HashMap<>(){{
                     put("league", equalTo("39"));
                     put("season", equalTo("2023"));
@@ -31,13 +31,7 @@ public class PremierLeageStandingsTestLifecycleManager implements QuarkusTestRes
                 .willReturn(aResponse()
                         .withBody(TestValues.RESPONSE_FIXTURES)));
 
-        stubFor(get(urlEqualTo(TestValues.API_URL))
-                .withQueryParam("league", equalTo("39"))
-                .withQueryParam("season", equalTo("2023"))
-                .withHeader(TestValues.API_AUTH_KEY, equalTo(TestValues.API_AUTH_VALUE))
-                .willReturn(aResponse().withBody(TestValues.RESPONSE_STANDINGS)));
-
-        return Collections.singletonMap("org.acme.getting.started.country.CountriesService/mp-rest/url", wireMockServer.baseUrl());
+        return Collections.singletonMap("quarkus.rest-client.football-api.url", wireMockServer.baseUrl());
     }
 
     @Override
