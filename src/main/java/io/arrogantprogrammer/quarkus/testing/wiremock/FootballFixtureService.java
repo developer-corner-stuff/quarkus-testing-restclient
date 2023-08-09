@@ -10,11 +10,11 @@ import org.slf4j.Logger;
 
 import static org.slf4j.LoggerFactory.getLogger;
 
-@Path("/fixtures")
+@Path("/plfixtures")
 public class FootballFixtureService {
 
     private static final Logger LOGGER = getLogger(FootballFixtureService.class);
-    @Inject
+
     @RestClient
     ApiFootballService apiFootballService;
 

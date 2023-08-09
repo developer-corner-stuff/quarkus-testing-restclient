@@ -1,10 +1,17 @@
 package io.arrogantprogrammer.quarkus.testing.wiremock.utils;
 
+import io.arrogantprogrammer.quarkus.testing.wiremock.domain.Fixture;
+import io.arrogantprogrammer.quarkus.testing.wiremock.domain.FootballApiResponse;
+import io.arrogantprogrammer.quarkus.testing.wiremock.domain.Response__1;
+import io.arrogantprogrammer.quarkus.testing.wiremock.domain.Venue;
+
+import java.util.Collections;
+
 public class TestValues {
 
-    public static final String API_URL = "https://v3.football.api-sports.io/fixtures";
-    public static final String API_AUTH_KEY = "x-apisports-key";
-    public static final String API_AUTH_VALUE = "2b36a6fgc9bd0fmwd6b31d9c63adc0c8";
+//    public static final String API_URL = "https://v3.football.api-sports.io";
+//    public static final String API_AUTH_KEY = "x-apisports-key";
+//    public static final String API_AUTH_VALUE = "2b36a6fgc9bd0fmwd6b31d9c63adc0c8";
 
     public static final String RESPONSE_FIXTURES = """
                 {
@@ -34,7 +41,7 @@ public class TestValues {
                                 },
                                 "venue": {
                                     "id": 512,
-                                    "name": "Turf Moor",
+                                    "name": "Maine Road",
                                     "city": "Burnley"
                                 },
                                 "status": {
@@ -95,4 +102,9 @@ public class TestValues {
 
     public static final String RESPONSE_STANDINGS = """
             """;
+
+    public static FootballApiResponse mockApiFootballResponse() {
+        return new FootballApiResponse()
+                .withResponse(Collections.singletonList(new Response__1().withFixture(new Fixture().withVenue(new Venue().withName("Maine Road")))));
+    }
 }
