@@ -21,11 +21,6 @@ public class WiremockApiFootballProxy implements QuarkusTestResourceLifecycleMan
 
         stubFor(
                 get(urlEqualTo("/fixtures?league=39&season=2023&date=2023-08-11"))
-                        .withQueryParams(new HashMap<>(){{
-                            put("league", equalTo("39"));
-                            put("season", equalTo("2023"));
-                            put("date", equalTo("2023-08-11"));
-                        }})
                         .willReturn(
                                 aResponse()
                                         .withHeader("Content-Type", "application/json")
